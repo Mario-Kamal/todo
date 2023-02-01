@@ -24,7 +24,7 @@ class TasksScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) => Scaffold(
         backgroundColor: AppColors.mainColor,
-        appBar: DefaultAppbar(context,state),
+        appBar: DefaultAppbar(context, state),
         body: BlocBuilder<TasksCubit, TaskState>(
           builder: (context, st) => st.tasks.isEmpty
               ? Center(
@@ -87,8 +87,7 @@ class TasksScreen extends StatelessWidget {
             );
           },
         ),
-        floatingActionButtonLocation:
-            FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: AppColors.bottomNavColor,
           currentIndex: 0,
@@ -97,10 +96,9 @@ class TasksScreen extends StatelessWidget {
               TextStyle(fontWeight: FontWeight.w600, fontSize: 12.sp),
           unselectedItemColor: AppColors.bottomIconColor,
           unselectedLabelStyle: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 14.sp,
-            color: AppColors.bottomIconColor
-          ),
+              fontWeight: FontWeight.w600,
+              fontSize: 14.sp,
+              color: AppColors.bottomIconColor),
           elevation: 0,
           onTap: (n) {
             if (n == 1) {
@@ -116,18 +114,17 @@ class TasksScreen extends StatelessWidget {
               label: "Home",
             ),
             BottomNavigationBarItem(
-                icon: Icon(
-                  state.appTheme
-                      ? Icons.nightlight_outlined
-                      : Icons.light_mode_outlined,
-                  color: AppColors.bottomIconColor,
-                  size: 25.r,
-                ),
-                label: state.appTheme ? "Night Light" : "Day Light",),
+              icon: Icon(
+                state.appTheme
+                    ? Icons.nightlight_outlined
+                    : Icons.light_mode_outlined,
+                size: 25.r,
+              ),
+              label: state.appTheme ? "Night Light" : "Day Light",
+            ),
           ],
         ),
       ),
     );
   }
-
 }

@@ -45,13 +45,15 @@ class TasksCubit extends Cubit<TaskState> {
 
   updateDB() {}
 
-  deleteFromDB({int? id}) async{
+  deleteFromDB({int? id}) async {
     await state.database?.rawDelete('DELETE FROM Test WHERE id = ?', [id]);
     emit(state.copywith());
     getFromDB();
   }
-  search(searchvalue){
-    emit(state.copywith(searchvalue: searchvalue,));
-  }
 
+  search(searchvalue) {
+    emit(state.copywith(
+      searchvalue: searchvalue,
+    ));
+  }
 }

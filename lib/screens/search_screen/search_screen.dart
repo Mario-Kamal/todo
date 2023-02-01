@@ -51,16 +51,15 @@ class SearchScreen extends StatelessWidget {
                               color: AppColors.textColor),
                         ),
                       )
-                    :  ListView.separated(
-                            itemCount: taskslist.length,
-                            shrinkWrap: true,
-                            padding: EdgeInsets.only(
-                                top: 20.h, left: 20.w, right: 20.w),
-                            physics: const NeverScrollableScrollPhysics(),
-                            separatorBuilder: (context, index) =>
-                                const Divider(),
-                            itemBuilder: (context, index) =>
-                                taskItem(taskslist[index], context));
+                    : ListView.separated(
+                        itemCount: taskslist.length,
+                        shrinkWrap: true,
+                        padding:
+                            EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
+                        physics: const NeverScrollableScrollPhysics(),
+                        separatorBuilder: (context, index) => const Divider(),
+                        itemBuilder: (context, index) =>
+                            taskItem(taskslist[index], context));
           },
         ),
       ),

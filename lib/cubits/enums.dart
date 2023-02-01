@@ -1,4 +1,3 @@
-enum RequestState{
-  init,loading,success,error
-}
+enum RequestState { init, loading, success, error }
+
 enum ViewType { grid, list }

@@ -32,22 +32,28 @@ class GridTasksScreen extends StatelessWidget {
               SizedBox(
                 height: 40.h,
               ),
-              BlocBuilder<TasksCubit,TaskState>(builder: (context,state)=>GridView.builder(
-                itemBuilder: (context,index)=>_gridItem(state.tasks[index], context),
-                  itemCount: state.tasks.length,
-              shrinkWrap: true,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 22.0.w,
-                mainAxisSpacing: 22.0.h,
-              ),))
+              BlocBuilder<TasksCubit, TaskState>(
+                  builder: (context, state) => GridView.builder(
+                        itemBuilder: (context, index) =>
+                            _gridItem(state.tasks[index], context),
+                        itemCount: state.tasks.length,
+                        shrinkWrap: true,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 22.0.w,
+                          mainAxisSpacing: 22.0.h,
+                        ),
+                      ))
             ],
           )),
     );
   }
-  Widget _gridItem(TaskModel? taskModel,ctx)=>
-      Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r),color:AppColors.contBackColor,),
+
+  Widget _gridItem(TaskModel? taskModel, ctx) => Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.r),
+          color: AppColors.contBackColor,
+        ),
         height: 175.h,
         width: 165.w,
         padding: EdgeInsets.all(20),
@@ -55,7 +61,7 @@ class GridTasksScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              taskModel?.title??"",
+              taskModel?.title ?? "",
               style: TextStyle(
                   color: HexColor(
                     "#FFFFFF",
@@ -66,7 +72,7 @@ class GridTasksScreen extends StatelessWidget {
             SizedBox(
               height: 22.h,
             ),
-            Text(taskModel?.task??"",
+            Text(taskModel?.task ?? "",
                 style: TextStyle(
                     color: HexColor(
                       "#FFFFFF",
@@ -74,24 +80,29 @@ class GridTasksScreen extends StatelessWidget {
                     fontWeight: FontWeight.w300,
                     fontSize: 16.sp)),
             Spacer(),
-            Row(children: [
-              Spacer(),
-              Icon(
-                Icons.check_box_outlined,
-                color: Colors.white,
-                size: 25.sp,
-              ),
-              SizedBox(width: 15.w,),
-              IconButton(
-                onPressed: (){
-                  TasksCubit.get(ctx).deleteFromDB(id: taskModel?.id);
-                },
-                icon: Icon( Icons.delete_outline,
+            Row(
+              children: [
+                Spacer(),
+                Icon(
+                  Icons.check_box_outlined,
                   color: Colors.white,
-                  size: 25.sp,),
-              )
-
-            ],)
+                  size: 25.sp,
+                ),
+                SizedBox(
+                  width: 15.w,
+                ),
+                IconButton(
+                  onPressed: () {
+                    TasksCubit.get(ctx).deleteFromDB(id: taskModel?.id);
+                  },
+                  icon: Icon(
+                    Icons.delete_outline,
+                    color: Colors.white,
+                    size: 25.sp,
+                  ),
+                )
+              ],
+            )
           ],
         ),
       );

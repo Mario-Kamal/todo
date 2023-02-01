@@ -19,7 +19,7 @@ class MainCubit extends Cubit<MainState> {
     emit(state.copywith(appTheme: !state.appTheme));
   }
 
-  changeViewType(){
+  changeViewType() {
     if (state.viewType == ViewType.grid) {
       emit(state.copywith(viewType: ViewType.list));
     } else {

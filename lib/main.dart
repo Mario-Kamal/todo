@@ -22,29 +22,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (BuildContext context) => MainCubit()),
         BlocProvider(
-        create: (BuildContext context) =>MainCubit()),
-        BlocProvider(
-          create: (BuildContext context) =>TasksCubit()..openDataBase())
+            create: (BuildContext context) => TasksCubit()..openDataBase())
       ],
       child: ScreenUtilInit(
           designSize: const Size(390, 844),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context , child) {
-      return BlocBuilder<MainCubit,MainState>(
-        builder: (context,state) {
-          return MaterialApp(
-            title: 'Flutter Demo',
-            theme: ThemeData(
-              useMaterial3: true,
-              primarySwatch: Colors.blue,
-
-            ),
-            home: const  SplashScreen(),
-          );
-        }
-      );
-  }),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (context, child) {
+            return BlocBuilder<MainCubit, MainState>(builder: (context, state) {
+              return MaterialApp(
+                title: 'Flutter Demo',
+                theme: ThemeData(
+                  useMaterial3: true,
+                  primarySwatch: Colors.blue,
+                ),
+                home: const SplashScreen(),
+              );
+            });
+          }),
     );
-}}
+  }
+}

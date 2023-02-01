@@ -34,13 +34,19 @@ class ShowBottomModalSheet extends StatelessWidget {
                     SizedBox(
                       height: 12.h,
                     ),
-                    Text("Todo Title",style: TextStyle(fontSize: 15.sp,color: Colors.black,fontWeight: FontWeight.w400),),
+                    Text(
+                      "Todo Title",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400),
+                    ),
                     SizedBox(
                       height: 12.h,
                     ),
                     TextFormField(
                       controller: _title,
-                      decoration:  InputDecoration(
+                      decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -58,13 +64,19 @@ class ShowBottomModalSheet extends StatelessWidget {
                     SizedBox(
                       height: 12.h,
                     ),
-                    Text("Task",style: TextStyle(fontSize: 15.sp,color: Colors.black,fontWeight: FontWeight.w400),),
+                    Text(
+                      "Task",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400),
+                    ),
                     SizedBox(
                       height: 12.h,
                     ),
                     TextFormField(
                       controller: _task,
-                      decoration:  InputDecoration(
+                      decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -72,7 +84,7 @@ class ShowBottomModalSheet extends StatelessWidget {
                         labelText: 'Task',
                       ),
                       validator: (value) {
-                         if (value!.isEmpty) {
+                        if (value!.isEmpty) {
                           return "Please enter your task ";
                         } else {
                           return null;
@@ -89,18 +101,29 @@ class ShowBottomModalSheet extends StatelessWidget {
                 width: double.infinity,
                 height: 57.h,
                 child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Color(0xff9D1212),),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))
-                  ),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Color(0xff9D1212),
+                        ),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)))),
                     onPressed: () {
-                    if(_formKey.currentState!.validate()) {
-                      TasksCubit.get(context)
-                          .insertToDB(TaskModel(title: _title.text, task: _task.text))
-                          .then((value) => Navigator.pop(context));
-                    }
+                      if (_formKey.currentState!.validate()) {
+                        TasksCubit.get(context)
+                            .insertToDB(
+                                TaskModel(title: _title.text, task: _task.text))
+                            .then((value) => Navigator.pop(context));
+                      }
                     },
-                    child: Center(child: Text("Save",style: TextStyle(color: Colors.white,fontSize: 30.sp,fontWeight: FontWeight.w400),),)),
+                    child: Center(
+                      child: Text(
+                        "Save",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30.sp,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    )),
               )
             ],
           ),

@@ -49,31 +49,71 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-          padding: EdgeInsets.all(30),
+      padding: EdgeInsets.all(30),
       width: double.infinity,
       height: double.infinity,
-      decoration:  BoxDecoration( color: Color(0xffFF4444),),
-          child: Column(children: [
-            Text("My Tasks",style: TextStyle(fontWeight:FontWeight.w700,fontSize: 32.sp,color: Colors.white),),
-            Text("مهامي",style: TextStyle(fontWeight:FontWeight.w700,fontSize: 32.sp,color: Colors.white)),
-            SizedBox(height: 50.h,),
-            SizedBox(height:325.h,width:340.w,child: SvgPicture.asset("assets/1.svg",fit: BoxFit.fill,)),
-            SizedBox(height: 100.h,),
-            SizedBox(height:50,width:215.w,child: SvgPicture.asset("assets/2.svg",fit: BoxFit.fill,)),
-            SizedBox(height: 100.h,),
-            Row(
-              children: [
-                Column(children: [
-                  Text("Good",style: TextStyle(fontSize: 15.sp,color: Colors.white.withOpacity(0.5)),),
-                  Text("Consistancy",style: TextStyle(fontSize: 20.sp,color: Colors.white),),
-                ],crossAxisAlignment: CrossAxisAlignment.start,),
-                Spacer(),
-                SvgPicture.asset("assets/3.svg")
-              ],
-            )
-
-          ],),
-
+      decoration: BoxDecoration(
+        color: Color(0xffFF4444),
+      ),
+      child: Column(
+        children: [
+          Text(
+            "My Tasks",
+            style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 32.sp,
+                color: Colors.white),
+          ),
+          Text("مهامي",
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 32.sp,
+                  color: Colors.white)),
+          SizedBox(
+            height: 50.h,
+          ),
+          SizedBox(
+              height: 325.h,
+              width: 340.w,
+              child: SvgPicture.asset(
+                "assets/1.svg",
+                fit: BoxFit.fill,
+              )),
+          SizedBox(
+            height: 100.h,
+          ),
+          SizedBox(
+              height: 50,
+              width: 215.w,
+              child: SvgPicture.asset(
+                "assets/2.svg",
+                fit: BoxFit.fill,
+              )),
+          SizedBox(
+            height: 100.h,
+          ),
+          Row(
+            children: [
+              Column(
+                children: [
+                  Text(
+                    "Good",
+                    style: TextStyle(
+                        fontSize: 15.sp, color: Colors.white.withOpacity(0.5)),
+                  ),
+                  Text(
+                    "Consistancy",
+                    style: TextStyle(fontSize: 20.sp, color: Colors.white),
+                  ),
+                ],
+                crossAxisAlignment: CrossAxisAlignment.start,
+              ),
+              Spacer(),
+              SvgPicture.asset("assets/3.svg")
+            ],
+          )
+        ],
+      ),
     ));
   }
 }
