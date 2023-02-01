@@ -95,10 +95,11 @@ class TasksScreen extends StatelessWidget {
           selectedItemColor: HexColor("#FF4444").withOpacity(0.7),
           selectedLabelStyle:
               TextStyle(fontWeight: FontWeight.w600, fontSize: 12.sp),
-          unselectedItemColor: const Color(0xff000000).withOpacity(0.5),
+          unselectedItemColor: AppColors.bottomIconColor,
           unselectedLabelStyle: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 14.sp,
+            color: AppColors.bottomIconColor
           ),
           elevation: 0,
           onTap: (n) {
@@ -119,10 +120,10 @@ class TasksScreen extends StatelessWidget {
                   state.appTheme
                       ? Icons.nightlight_outlined
                       : Icons.light_mode_outlined,
-                  color: const Color(0xff000000),
+                  color: AppColors.bottomIconColor,
                   size: 25.r,
                 ),
-                label: state.appTheme ? "Night Light" : "Day Light"),
+                label: state.appTheme ? "Night Light" : "Day Light",),
           ],
         ),
       ),
