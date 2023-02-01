@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static Color mainColor = Colors.white;
-  static Color textColor = const Color(0xffFF0000);
+  static Color textColor = const Color(0x50FF0000);
   static Color contBackColor = const Color(0xffFF4444);
   static Color floatingColor = const Color(0xffFF4444);
   static Color iconColor = const Color(0xffFF0000);
