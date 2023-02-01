@@ -82,7 +82,7 @@ class TasksScreen extends StatelessWidget {
               ),
               context: context,
               builder: (BuildContext context) {
-                return SizedBox(height: 310.h, child: ShowBottomModalSheet());
+                return ShowBottomModalSheet();
               },
             );
           },
