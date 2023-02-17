@@ -5,6 +5,7 @@ import 'package:todoapp/appcolors.dart';
 import 'package:todoapp/component/defaultappbar.dart';
 import 'package:todoapp/component/taskitem.dart';
 import 'package:todoapp/component/widgets.dart';
+import 'package:todoapp/const.dart';
 import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/cubits/main_cubit/state.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
@@ -31,10 +32,10 @@ class SearchScreen extends StatelessWidget {
             final taskList = TasksCubit.get(context).searchTaskList();
             return st.searchValue.isEmpty
                 ? Center(
-                    child: defaultText("search task"),
+                    child: defaultText(searchTaskSearch),
                   )
                 : taskList.isEmpty
-                    ? Center(child: defaultText("No Results"))
+                    ? Center(child: defaultText(noResultsSearch))
                     : ListView.separated(
                         itemCount: taskList.length,
                         shrinkWrap: true,

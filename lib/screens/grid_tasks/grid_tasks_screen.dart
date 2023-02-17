@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todoapp/component/widgets.dart';
+import 'package:todoapp/const.dart';
 import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/cubits/main_cubit/state.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
@@ -19,7 +20,7 @@ class GridTasksScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              defaultText("Whats on your mind?"),
+              defaultText(whatIsOnYourMind),
               SizedBox(
                 height: 40.h,
               ),

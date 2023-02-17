@@ -56,8 +56,8 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       child: Column(
         children: [
-          mainSplashText("My Tasks", 32.sp),
-          mainSplashText("مهامي", 32.sp),
+          mainSplashText(myTasksSplash, 32.sp),
+          mainSplashText(myTasksArSplash, 32.sp),
           SizedBox(
             height: 50.h,
           ),
@@ -74,8 +74,8 @@ class _SplashScreenState extends State<SplashScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  mainSplashText("Good", 20.sp),
-                  mainSplashText("Consistency", 20.sp),
+                  mainSplashText(goodSplash, 20.sp),
+                  mainSplashText(consistencySplash, 20.sp),
                 ],
               ),
               const Spacer(),

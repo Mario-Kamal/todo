@@ -7,6 +7,7 @@ import 'package:todoapp/component/component.dart';
 import 'package:todoapp/component/defaultappbar.dart';
 import 'package:todoapp/component/taskitem.dart';
 import 'package:todoapp/component/widgets.dart';
+import 'package:todoapp/const.dart';
 import 'package:todoapp/cubits/enums.dart';
 import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/cubits/main_cubit/state.dart';
@@ -27,7 +28,7 @@ class TasksScreen extends StatelessWidget {
         body: BlocBuilder<TasksCubit, TaskState>(
           builder: (context, st) => st.tasks.isEmpty
               ? Center(
-                  child: defaultText("Please add some tasks"),
+                  child: defaultText(pleaseAddSomeTasks),
                 )
               : st.requestState == RequestState.error
                   ? const Center(child: Text('error'))
@@ -36,7 +37,7 @@ class TasksScreen extends StatelessWidget {
                           padding: EdgeInsets.only(
                               top: 50.h, left: 20.w, right: 20.w),
                           children: [
-                            defaultText("Whats on your mind?"),
+                            defaultText(whatIsOnYourMind),
                             SizedBox(
                               height: 40.h,
                             ),
