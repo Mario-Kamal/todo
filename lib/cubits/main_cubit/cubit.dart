@@ -4,24 +4,28 @@ import 'package:todoapp/cubits/enums.dart';
 import 'package:todoapp/cubits/main_cubit/state.dart';
 
 class MainCubit extends Cubit<MainState> {
-  MainCubit() : super(MainState());
+  MainCubit() : super(ChangeAppThemeState(false));
 
   static MainCubit get(context) => BlocProvider.of(context);
-
+  bool appTheme=false;
+  ViewType viewType=ViewType.list;
   changeapptheme() {
-    if (state.appTheme == false) {
+    if (appTheme==true) {
       AppColors.lightTheme();
     } else {
       AppColors.dark();
     }
-    emit(state.copywith(appTheme: !state.appTheme));
+    appTheme=!appTheme;
+    emit(ChangeAppThemeState(appTheme));
   }
 
   changeViewType() {
-    if (state.viewType == ViewType.grid) {
-      emit(state.copywith(viewType: ViewType.list));
+    if (viewType == ViewType.grid) {
+      viewType=ViewType.list;
+      emit(ChangeViewTypeState(viewType));
     } else {
-      emit(state.copywith(viewType: ViewType.grid));
+      viewType=ViewType.grid;
+      emit(ChangeViewTypeState(viewType));
     }
   }
 }

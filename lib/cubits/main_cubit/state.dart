@@ -1,11 +1,20 @@
 import 'package:todoapp/cubits/enums.dart';
 
-class MainState {
+abstract class MainState {
   final bool appTheme;
-  ViewType viewType;
+  final ViewType viewType;
 
-  MainState({this.appTheme = true, this.viewType = ViewType.list});
+  MainState({this.appTheme=false, this.viewType=ViewType.list});
 
-  MainState copywith({bool? appTheme, ViewType? viewType}) => MainState(
-      appTheme: appTheme ?? this.appTheme, viewType: viewType ?? this.viewType);
 }
+
+class ChangeAppThemeState extends MainState{
+  final bool appThemes;
+
+  ChangeAppThemeState(this.appThemes):super(appTheme: appThemes);
+}
+class ChangeViewTypeState extends MainState{
+  final ViewType viewTypes;
+  ChangeViewTypeState(this.viewTypes):super(viewType: viewTypes);
+}
+

@@ -1,7 +1,6 @@
 import 'package:sqflite/sqlite_api.dart';
 import 'package:todoapp/cubits/enums.dart';
 import 'package:todoapp/model/task_model.dart';
-
 class TaskState {
   Database? database;
   List<TaskModel> tasks;
