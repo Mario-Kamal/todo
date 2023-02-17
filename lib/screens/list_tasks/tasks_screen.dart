@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:todoapp/appColors.dart';
+import 'package:todoapp/appcolors.dart';
 
 import 'package:todoapp/component/component.dart';
 import 'package:todoapp/component/defaultappbar.dart';
 import 'package:todoapp/component/taskitem.dart';
+import 'package:todoapp/component/widgets.dart';
 import 'package:todoapp/cubits/enums.dart';
 import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/cubits/main_cubit/state.dart';
@@ -27,13 +27,7 @@ class TasksScreen extends StatelessWidget {
         body: BlocBuilder<TasksCubit, TaskState>(
           builder: (context, st) => st.tasks.isEmpty
               ? Center(
-                  child: Text(
-                    "Please add some tasks",
-                    style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.textColor),
-                  ),
+                  child: defaultText("Please add some tasks"),
                 )
               : st.requestState == RequestState.error
                   ? const Center(child: Text('error'))
@@ -42,14 +36,7 @@ class TasksScreen extends StatelessWidget {
                           padding: EdgeInsets.only(
                               top: 50.h, left: 20.w, right: 20.w),
                           children: [
-                            Text(
-                              "Whats on your mind?",
-                              style: TextStyle(
-                                  color: AppColors.textColor,
-                                  fontSize: 20.sp,
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.w600),
-                            ),
+                            defaultText("Whats on your mind?"),
                             SizedBox(
                               height: 40.h,
                             ),
@@ -90,14 +77,14 @@ class TasksScreen extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: AppColors.bottomNavColor,
           currentIndex: 0,
-          selectedItemColor: HexColor("#FF4444").withOpacity(0.7),
+          selectedItemColor: AppColors.bottomSelectedItemColor,
           selectedLabelStyle:
               TextStyle(fontWeight: FontWeight.w600, fontSize: 12.sp),
-          unselectedItemColor: AppColors.bottomIconColor,
+          unselectedItemColor: AppColors.bottomUnselectedIconColor,
           unselectedLabelStyle: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 14.sp,
-              color: AppColors.bottomIconColor),
+              color: AppColors.bottomUnselectedIconColor),
           elevation: 0,
           onTap: (n) {
             if (n == 1) {
@@ -108,7 +95,7 @@ class TasksScreen extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home_outlined,
-                size: 28.sp,
+                size: 28.r,
               ),
               label: "Home",
             ),

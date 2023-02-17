@@ -7,25 +7,25 @@ class TaskState {
   List<TaskModel> tasks;
   RequestState requestState;
   ViewType viewType;
-  String searchvalue;
+  String searchValue;
 
   TaskState(
       {this.database,
       this.tasks = const [],
       this.requestState = RequestState.init,
       this.viewType = ViewType.list,
-      this.searchvalue = ''});
+      this.searchValue = ''});
 
-  TaskState copywith(
+  TaskState copyWith(
           {Database? database,
           List<TaskModel>? tasks,
           RequestState? requestState,
           ViewType? viewType,
-          String? searchvalue}) =>
+          String? searchValue}) =>
       TaskState(
           database: database ?? this.database,
           tasks: tasks ?? this.tasks,
           requestState: requestState ?? this.requestState,
           viewType: viewType ?? this.viewType,
-          searchvalue: searchvalue ?? this.searchvalue);
+          searchValue: searchValue ?? this.searchValue);
 }

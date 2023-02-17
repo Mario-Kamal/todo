@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:todoapp/appcolors.dart';
+import 'package:todoapp/component/widgets.dart';
+import 'package:todoapp/const.dart';
 import 'package:todoapp/screens/list_tasks/tasks_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,16 +27,16 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: SystemUiOverlay.values); // to re-show bars
+    super.dispose();
   }
 
   loading() {
     Timer(
-      //السبلاش هتعقد قد ايه
+      //Time taken
       const Duration(seconds: 3),
-      //ايه اللي بيحصل بعد مالوقت بيعدي
+      //What will be done after splash
       () {
         Navigator.pushAndRemoveUntil(
             context,
@@ -48,45 +51,21 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
         body: Container(
       padding: const EdgeInsets.all(30),
-      width: double.infinity,
-      height: double.infinity,
-      decoration: const BoxDecoration(
-        color: Color(0xffFF4444),
+      decoration: BoxDecoration(
+        color: AppColors.splashScreenColor,
       ),
       child: Column(
         children: [
-          Text(
-            "My Tasks",
-            style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 32.sp,
-                color: Colors.white),
-          ),
-          Text("مهامي",
-              style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 32.sp,
-                  color: Colors.white)),
+          mainSplashText("My Tasks", 32.sp),
+          mainSplashText("مهامي", 32.sp),
           SizedBox(
             height: 50.h,
           ),
-          SizedBox(
-              height: 325.h,
-              width: 340.w,
-              child: SvgPicture.asset(
-                "assets/1.svg",
-                fit: BoxFit.fill,
-              )),
+          svgSizedBox(325.h, 340.w, mainSplashImage),
           SizedBox(
             height: 100.h,
           ),
-          SizedBox(
-              height: 50,
-              width: 215.w,
-              child: SvgPicture.asset(
-                "assets/2.svg",
-                fit: BoxFit.fill,
-              )),
+          svgSizedBox(50.h, 215.w, lineSplashImage),
           SizedBox(
             height: 100.h,
           ),
@@ -95,19 +74,12 @@ class _SplashScreenState extends State<SplashScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Good",
-                    style: TextStyle(
-                        fontSize: 15.sp, color: Colors.white.withOpacity(0.5)),
-                  ),
-                  Text(
-                    "Consistancy",
-                    style: TextStyle(fontSize: 20.sp, color: Colors.white),
-                  ),
+                  mainSplashText("Good", 20.sp),
+                  mainSplashText("Consistency", 20.sp),
                 ],
               ),
               const Spacer(),
-              SvgPicture.asset("assets/3.svg")
+              SvgPicture.asset(cupSplashIcon)
             ],
           )
         ],

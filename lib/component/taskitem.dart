@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:todoapp/appColors.dart';
+import 'package:todoapp/appcolors.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
 import 'package:todoapp/model/task_model.dart';
 
@@ -28,9 +27,7 @@ Widget taskItem(TaskModel? taskModel, ctx) => Container(
                 Text(
                   taskModel?.title ?? '',
                   style: TextStyle(
-                      color: HexColor(
-                        "#FFFFFF",
-                      ),
+                      color: Colors.white,
                       fontWeight: FontWeight.w700,
                       fontSize: 24.sp),
                 ),
@@ -39,9 +36,7 @@ Widget taskItem(TaskModel? taskModel, ctx) => Container(
                 ),
                 Text(taskModel?.task ?? '',
                     style: TextStyle(
-                        color: HexColor(
-                          "#FFFFFF",
-                        ),
+                        color: Colors.white,
                         fontWeight: FontWeight.w300,
                         fontSize: 16.sp)),
               ],

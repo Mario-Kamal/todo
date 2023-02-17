@@ -31,12 +31,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc:
   flutter_bloc:
-  hexcolor:
   flutter_screenutil:
-  equatable:
-  get_it:
   sqflite:
   flutter_svg:
 

@@ -17,7 +17,7 @@ class TasksCubit extends Cubit<TaskState> {
       await db.execute(
           'CREATE TABLE Test (id INTEGER PRIMARY KEY, title TEXT, task TEXT)');
     }).then((db) {
-      emit(state.copywith(database: db));
+      emit(state.copyWith(database: db));
       getFromDB();
     });
   }
@@ -26,16 +26,16 @@ class TasksCubit extends Cubit<TaskState> {
     await state.database?.transaction((txn) async {
       await txn.rawInsert(
           'INSERT INTO Test(title, task) VALUES("${taskModel.title}", "${taskModel.task}")');
-      emit(state.copywith());
+      emit(state.copyWith());
       getFromDB();
     });
   }
 
   getFromDB() async {
-    emit(state.copywith(requestState: RequestState.loading));
+    emit(state.copyWith(requestState: RequestState.loading));
     List<Map<String, dynamic>>? list =
         await state.database?.rawQuery('SELECT * FROM Test');
-    emit(state.copywith(
+    emit(state.copyWith(
         tasks: list?.map<TaskModel>((e) => TaskModel.fromDB(e)).toList(),
         requestState: RequestState.success));
   }
@@ -44,13 +44,19 @@ class TasksCubit extends Cubit<TaskState> {
 
   deleteFromDB({int? id}) async {
     await state.database?.rawDelete('DELETE FROM Test WHERE id = ?', [id]);
-    emit(state.copywith());
+    emit(state.copyWith());
     getFromDB();
   }
 
   search(searchvalue) {
-    emit(state.copywith(
-      searchvalue: searchvalue,
+    emit(state.copyWith(
+      searchValue: searchvalue,
     ));
+  }
+  searchTaskList (){
+    state.tasks
+        .where((element) =>
+    element.title?.toLowerCase().contains(state.searchValue.toLowerCase()) ?? false)
+        .toList();
   }
 }

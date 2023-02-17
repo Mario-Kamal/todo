@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:todoapp/appColors.dart';
+import 'package:todoapp/appcolors.dart';
 import 'package:todoapp/cubits/enums.dart';
 import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/screens/search_screen/search_screen.dart';
@@ -57,17 +56,17 @@ PreferredSizeWidget defaultAppbar(context, state,
                   fillColor: AppColors.mainColor,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
-                      borderSide: BorderSide(color: HexColor('E1E1E1'))),
+                      borderSide: BorderSide(color: AppColors.appBarColor)),
                   hintStyle: TextStyle(
                     color: AppColors.textColor,
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: HexColor('E1E1E1')),
+                    borderSide: BorderSide(width: 1, color: AppColors.appBarColor),
                     borderRadius: const BorderRadius.all(Radius.circular(25)),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(25)),
-                    borderSide: BorderSide(width: 1, color: HexColor('E1E1E1')),
+                    borderSide: BorderSide(width: 1, color: AppColors.appBarColor),
                   ),
                   enabled: true,
 
@@ -92,7 +91,7 @@ PreferredSizeWidget defaultAppbar(context, state,
                             builder: (context) => SearchScreen()));
                   },
                   icon: Icon(Icons.search,
-                      size: 25.sp, color: HexColor("#D1CDCD")))
+                      size: 25.sp, color: AppColors.appBarIconColor))
           ],
         ),
       ),
