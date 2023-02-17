@@ -19,7 +19,7 @@ class SearchScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) => Scaffold(
         backgroundColor: AppColors.mainColor,
-        appBar: DefaultAppbar(context, state,
+        appBar: defaultAppbar(context, state,
             isback: true, searchcontroller: _search, onsubmit: (v) {
           TasksCubit.get(context).search(v);
         }, onchanged: (v) {
@@ -29,7 +29,7 @@ class SearchScreen extends StatelessWidget {
           builder: (context, st) {
             final taskslist = st.tasks
                 .where((element) =>
-                    element.title?.contains(st.searchvalue ?? '') ?? false)
+                    element.title?.contains(st.searchvalue) ?? false)
                 .toList();
             return st.searchvalue.isEmpty
                 ? Center(

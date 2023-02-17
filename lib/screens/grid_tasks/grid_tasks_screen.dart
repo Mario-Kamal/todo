@@ -56,7 +56,7 @@ class GridTasksScreen extends StatelessWidget {
         ),
         height: 175.h,
         width: 165.w,
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -79,10 +79,10 @@ class GridTasksScreen extends StatelessWidget {
                     ),
                     fontWeight: FontWeight.w300,
                     fontSize: 16.sp)),
-            Spacer(),
+            const Spacer(),
             Row(
               children: [
-                Spacer(),
+                const Spacer(),
                 Icon(
                   Icons.check_box_outlined,
                   color: Colors.white,

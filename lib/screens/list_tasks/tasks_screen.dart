@@ -12,7 +12,6 @@ import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/cubits/main_cubit/state.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
 import 'package:todoapp/cubits/taskscubit/state.dart';
-import 'package:todoapp/model/task_model.dart';
 import 'package:todoapp/screens/grid_tasks/grid_tasks_screen.dart';
 
 class TasksScreen extends StatelessWidget {
@@ -24,7 +23,7 @@ class TasksScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) => Scaffold(
         backgroundColor: AppColors.mainColor,
-        appBar: DefaultAppbar(context, state),
+        appBar: defaultAppbar(context, state),
         body: BlocBuilder<TasksCubit, TaskState>(
           builder: (context, st) => st.tasks.isEmpty
               ? Center(

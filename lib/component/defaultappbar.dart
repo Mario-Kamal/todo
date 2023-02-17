@@ -6,7 +6,7 @@ import 'package:todoapp/cubits/enums.dart';
 import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/screens/search_screen/search_screen.dart';
 
-PreferredSizeWidget DefaultAppbar(context, state,
+PreferredSizeWidget defaultAppbar(context, state,
         {bool isback = false,
         TextEditingController? searchcontroller,
         onsubmit,

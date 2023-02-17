@@ -5,12 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/cubits/main_cubit/state.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
-import 'package:todoapp/locator.dart';
-import 'package:todoapp/screens/list_tasks/tasks_screen.dart';
 import 'package:todoapp/screens/splash.dart';
 
 void main() {
-  Servicelocator.init();
   runApp(const MyApp());
 }
 

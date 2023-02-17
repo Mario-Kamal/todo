@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:todoapp/appColors.dart';
 import 'package:todoapp/screens/list_tasks/tasks_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -26,7 +25,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void dispose() {
     super.dispose();
-
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: SystemUiOverlay.values); // to re-show bars
   }
@@ -49,10 +47,10 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       width: double.infinity,
       height: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xffFF4444),
       ),
       child: Column(
@@ -95,6 +93,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Row(
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "Good",
@@ -106,9 +105,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     style: TextStyle(fontSize: 20.sp, color: Colors.white),
                   ),
                 ],
-                crossAxisAlignment: CrossAxisAlignment.start,
               ),
-              Spacer(),
+              const Spacer(),
               SvgPicture.asset("assets/3.svg")
             ],
           )

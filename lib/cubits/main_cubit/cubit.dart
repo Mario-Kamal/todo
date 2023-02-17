@@ -1,9 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:todoapp/appColors.dart';
 import 'package:todoapp/cubits/enums.dart';
 import 'package:todoapp/cubits/main_cubit/state.dart';
-import 'package:todoapp/model/task_model.dart';
 
 class MainCubit extends Cubit<MainState> {
   MainCubit() : super(MainState());

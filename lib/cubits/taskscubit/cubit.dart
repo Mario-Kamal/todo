@@ -13,12 +13,10 @@ class TasksCubit extends Cubit<TaskState> {
     var databasesPath = await getDatabasesPath();
     String path = '${databasesPath}tododb.db';
     openDatabase(path, version: 1, onCreate: (Database db, int version) async {
-      print('tododb created');
       // When creating the db, create the table
       await db.execute(
           'CREATE TABLE Test (id INTEGER PRIMARY KEY, title TEXT, task TEXT)');
     }).then((db) {
-      print('tododb opend');
       emit(state.copywith(database: db));
       getFromDB();
     });
@@ -28,7 +26,6 @@ class TasksCubit extends Cubit<TaskState> {
     await state.database?.transaction((txn) async {
       await txn.rawInsert(
           'INSERT INTO Test(title, task) VALUES("${taskModel.title}", "${taskModel.task}")');
-      print('inserted');
       emit(state.copywith());
       getFromDB();
     });
