@@ -29,7 +29,7 @@ class SearchScreen extends StatelessWidget {
           builder: (context, st) {
             final taskslist = st.tasks
                 .where((element) =>
-                    element.title?.contains(st.searchvalue) ?? false)
+                    element.title?.toLowerCase().contains(st.searchvalue.toLowerCase()) ?? false)
                 .toList();
             return st.searchvalue.isEmpty
                 ? Center(
