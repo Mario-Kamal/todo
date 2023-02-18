@@ -15,6 +15,7 @@ class SearchScreen extends StatelessWidget {
   SearchScreen({Key? key}) : super(key: key);
   final TextEditingController _search = TextEditingController();
 
+  ///great work
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<MainCubit, MainState>(

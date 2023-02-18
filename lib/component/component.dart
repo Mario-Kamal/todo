@@ -34,6 +34,8 @@ class ShowBottomModalSheet extends StatelessWidget {
                     SizedBox(
                       height: 12.h,
                     ),
+
+                    ///use the constant texts
                     Text(
                       "Todo Title",
                       style: TextStyle(

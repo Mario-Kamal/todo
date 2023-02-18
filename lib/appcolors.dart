@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//try to use themes it gives more control over the app
 class AppColors {
   static Color mainColor = Colors.white;
   static Color textColor = const Color(0x50FF0000);
@@ -11,7 +12,8 @@ class AppColors {
   static Color bottomNavColor = Colors.white;
   static Color bottomUnselectedIconColor = Colors.black;
   static Color splashScreenColor = const Color(0xffFF4444);
-  static Color bottomSelectedItemColor = const Color(0xffFF4444).withOpacity(0.7);
+  static Color bottomSelectedItemColor =
+      const Color(0xffFF4444).withOpacity(0.7);
 
   AppColors.lightTheme() {
     mainColor = Colors.white;

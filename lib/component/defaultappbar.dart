@@ -6,6 +6,8 @@ import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/screens/search_screen/search_screen.dart';
 
 PreferredSizeWidget defaultAppbar(context, state,
+
+        ///take care of the naming of variables
         {bool isback = false,
         TextEditingController? searchcontroller,
         onsubmit,
@@ -29,6 +31,7 @@ PreferredSizeWidget defaultAppbar(context, state,
                   }
                 },
                 icon: Icon(
+                  ///use list and put all the icons and use index
                   isback
                       ? Icons.arrow_back_ios_new_rounded
                       : state.viewType == ViewType.grid
@@ -61,12 +64,14 @@ PreferredSizeWidget defaultAppbar(context, state,
                     color: AppColors.textColor,
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: AppColors.appBarColor),
+                    borderSide:
+                        BorderSide(width: 1, color: AppColors.appBarColor),
                     borderRadius: const BorderRadius.all(Radius.circular(25)),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(25)),
-                    borderSide: BorderSide(width: 1, color: AppColors.appBarColor),
+                    borderSide:
+                        BorderSide(width: 1, color: AppColors.appBarColor),
                   ),
                   enabled: true,
 
