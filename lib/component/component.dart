@@ -34,6 +34,7 @@ class ShowBottomModalSheet extends StatelessWidget {
                     SizedBox(
                       height: 12.h,
                     ),
+                    // why you did't to use appStrings to handel all strings 
                     Text(
                       "Todo Title",
                       style: TextStyle(
@@ -67,6 +68,7 @@ class ShowBottomModalSheet extends StatelessWidget {
                     Text(
                       "Task",
                       style: TextStyle(
+                        // same like strings it will be better to use appColoe class to handel colors
                           fontSize: 15.sp,
                           color: Colors.black,
                           fontWeight: FontWeight.w400),
