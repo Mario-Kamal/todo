@@ -5,6 +5,8 @@ import 'package:todoapp/appcolors.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
 import 'package:todoapp/model/task_model.dart';
 
+
+// i thik it will be better if you created a fille 
 Widget defaultText(text) => Text(text,
     style: TextStyle(
         fontSize: 20.sp,
