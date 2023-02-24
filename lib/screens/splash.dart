@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:todoapp/appcolors.dart';
+import 'package:todoapp/theme/appcolors.dart';
 import 'package:todoapp/component/widgets.dart';
-import 'package:todoapp/const.dart';
+import 'package:todoapp/resources/const.dart';
 import 'package:todoapp/screens/list_tasks/tasks_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => const TasksScreen()),
+            MaterialPageRoute(builder: (context) =>  const TasksScreen()),
             (route) => false);
       },
     );
@@ -56,8 +56,8 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       child: Column(
         children: [
-          mainSplashText(myTasksSplash, 32.sp),
-          mainSplashText(myTasksArSplash, 32.sp),
+          Text(myTasksSplash,style: Theme.of(context).textTheme.bodyLarge,),
+          Text(myTasksArSplash,style: Theme.of(context).textTheme.bodyLarge,),
           SizedBox(
             height: 50.h,
           ),
@@ -74,8 +74,8 @@ class _SplashScreenState extends State<SplashScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  mainSplashText(goodSplash, 20.sp),
-                  mainSplashText(consistencySplash, 20.sp),
+                  Text(goodSplash,style: Theme.of(context).textTheme.bodyMedium,),
+                  Text(consistencySplash,style: Theme.of(context).textTheme.bodyMedium,)
                 ],
               ),
               const Spacer(),

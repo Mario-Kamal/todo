@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:todoapp/app_localization.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
 import 'package:todoapp/model/task_model.dart';
+import 'package:todoapp/resources/translate_keys.dart';
 
 class ShowBottomModalSheet extends StatelessWidget {
   ShowBottomModalSheet({Key? key}) : super(key: key);
@@ -35,7 +37,7 @@ class ShowBottomModalSheet extends StatelessWidget {
                       height: 12.h,
                     ),
                     Text(
-                      "Todo Title",
+                      AppLocalization.of(context).getTranslatedValues(TranslateKeys.toDoTitleBottom),
                       style: TextStyle(
                           fontSize: 15.sp,
                           color: Colors.black,
@@ -50,12 +52,12 @@ class ShowBottomModalSheet extends StatelessWidget {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        hintText: 'Todo title.....',
-                        labelText: 'Todo Title',
+                        hintText: '${AppLocalization.of(context).getTranslatedValues(TranslateKeys.toDoTitleBottom)}.....',
+                        labelText: AppLocalization.of(context).getTranslatedValues(TranslateKeys.toDoTitleBottom),
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Please enter your task ";
+                          return AppLocalization.of(context).getTranslatedValues(TranslateKeys.pleaseEnterYourTaskBottom);
                         } else {
                           return null;
                         }
@@ -65,7 +67,7 @@ class ShowBottomModalSheet extends StatelessWidget {
                       height: 12.h,
                     ),
                     Text(
-                      "Task",
+                      AppLocalization.of(context).getTranslatedValues(TranslateKeys.taskBottom),
                       style: TextStyle(
                           fontSize: 15.sp,
                           color: Colors.black,
@@ -80,12 +82,12 @@ class ShowBottomModalSheet extends StatelessWidget {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        hintText: 'Write anything in your mind ',
-                        labelText: 'Task',
+                        hintText: AppLocalization.of(context).getTranslatedValues(TranslateKeys.writeWhatOnMindBottom),
+                        labelText: AppLocalization.of(context).getTranslatedValues(TranslateKeys.taskBottom),
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Please enter your task ";
+                          return AppLocalization.of(context).getTranslatedValues(TranslateKeys.pleaseEnterYourTaskBottom);
                         } else {
                           return null;
                         }
@@ -117,7 +119,7 @@ class ShowBottomModalSheet extends StatelessWidget {
                     },
                     child: Center(
                       child: Text(
-                        "Save",
+                        AppLocalization.of(context).getTranslatedValues(TranslateKeys.save),
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 30.sp,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:todoapp/appcolors.dart';
+import 'package:todoapp/theme/appcolors.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
 import 'package:todoapp/model/task_model.dart';
 

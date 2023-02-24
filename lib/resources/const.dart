@@ -5,7 +5,16 @@
  const pleaseAddSomeTasks="Please add some tasks";
  const searchTaskSearch="Search Task";
  const noResultsSearch="No Results";
+ const myTasksAppBar="My Tasks";
  const myTasksSplash="My Tasks";
  const myTasksArSplash="مهامي";
  const goodSplash="Good";
  const consistencySplash="Consistency";
+ const dayLight="Day Light";
+ const nightLight="Night Light";
+ const home="Home";
+ const save="Save";
+ const toDoTitleBottom="Todo Title";
+ const pleaseEnterYourTaskBottom="Please enter your task";
+ const taskBottom="Task";
+ const writeWhatOnMindBottom="Write anything in your mind ";

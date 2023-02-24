@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:todoapp/appcolors.dart';
+import 'package:todoapp/app_localization.dart';
+import 'package:todoapp/theme/appcolors.dart';
+import 'package:todoapp/component/widgets.dart';
 import 'package:todoapp/cubits/enums.dart';
 import 'package:todoapp/cubits/main_cubit/cubit.dart';
+import 'package:todoapp/cubits/taskscubit/cubit.dart';
+import 'package:todoapp/resources/translate_keys.dart';
 import 'package:todoapp/screens/search_screen/search_screen.dart';
 
 PreferredSizeWidget defaultAppbar(context, state,
@@ -20,6 +24,9 @@ PreferredSizeWidget defaultAppbar(context, state,
         padding: EdgeInsets.symmetric(vertical: 32.0.h, horizontal: 5.w),
         child: Row(
           children: [
+            TextButton(onPressed: (){
+              TasksCubit.get(context).changeLanguage();
+            }, child: TasksCubit.get(context).isEn?defaultText("En"):defaultText("Ar")),
             IconButton(
                 onPressed: () {
                   if (isback) {
@@ -75,7 +82,7 @@ PreferredSizeWidget defaultAppbar(context, state,
               )),
             if (searchcontroller == null)
               Text(
-                'My Tasks',
+                AppLocalization.of(context).getTranslatedValues(TranslateKeys.myTasks),
                 style: TextStyle(
                     fontSize: 32.sp,
                     fontWeight: FontWeight.w700,

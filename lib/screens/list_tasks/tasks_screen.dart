@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:todoapp/appcolors.dart';
-
+import 'package:todoapp/app_localization.dart';
+import 'package:todoapp/theme/appcolors.dart';
 import 'package:todoapp/component/component.dart';
 import 'package:todoapp/component/defaultappbar.dart';
 import 'package:todoapp/component/taskitem.dart';
-import 'package:todoapp/component/widgets.dart';
-import 'package:todoapp/const.dart';
 import 'package:todoapp/cubits/enums.dart';
 import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/cubits/main_cubit/state.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
 import 'package:todoapp/cubits/taskscubit/state.dart';
+import 'package:todoapp/resources/translate_keys.dart';
 import 'package:todoapp/screens/grid_tasks/grid_tasks_screen.dart';
 
 class TasksScreen extends StatelessWidget {
@@ -28,7 +27,8 @@ class TasksScreen extends StatelessWidget {
         body: BlocBuilder<TasksCubit, TaskState>(
           builder: (context, st) => st.tasks.isEmpty
               ? Center(
-                  child: defaultText(pleaseAddSomeTasks),
+                  child:Text(AppLocalization.of(context)
+                      .getTranslatedValues(TranslateKeys.pleaseAddSomeTasks),style: Theme.of(context).textTheme.bodySmall,)
                 )
               : st.requestState == RequestState.error
                   ? const Center(child: Text('error'))
@@ -37,7 +37,8 @@ class TasksScreen extends StatelessWidget {
                           padding: EdgeInsets.only(
                               top: 50.h, left: 20.w, right: 20.w),
                           children: [
-                            defaultText(whatIsOnYourMind),
+                            Text(AppLocalization.of(context)
+                                .getTranslatedValues(TranslateKeys.whatIsOnYourMind),style: Theme.of(context).textTheme.bodySmall,),
                             SizedBox(
                               height: 40.h,
                             ),
@@ -89,7 +90,7 @@ class TasksScreen extends StatelessWidget {
           elevation: 0,
           onTap: (n) {
             if (n == 1) {
-              MainCubit.get(context).changeapptheme();
+              MainCubit.get(context).changeAppTheme();
             }
           },
           items: [
@@ -98,7 +99,8 @@ class TasksScreen extends StatelessWidget {
                 Icons.home_outlined,
                 size: 28.r,
               ),
-              label: "Home",
+              label: AppLocalization.of(context)
+                  .getTranslatedValues(TranslateKeys.home),
             ),
             BottomNavigationBarItem(
               icon: Icon(
@@ -107,7 +109,11 @@ class TasksScreen extends StatelessWidget {
                     : Icons.light_mode_outlined,
                 size: 25.r,
               ),
-              label: state.appTheme ? "Night Light" : "Day Light",
+              label: state.appTheme
+                  ? AppLocalization.of(context)
+                      .getTranslatedValues(TranslateKeys.nightLight)
+                  : AppLocalization.of(context)
+                      .getTranslatedValues(TranslateKeys.dayLight),
             ),
           ],
         ),

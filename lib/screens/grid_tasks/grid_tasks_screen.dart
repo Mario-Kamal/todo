@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:todoapp/app_localization.dart';
 import 'package:todoapp/component/widgets.dart';
-import 'package:todoapp/const.dart';
 import 'package:todoapp/cubits/main_cubit/cubit.dart';
 import 'package:todoapp/cubits/main_cubit/state.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
 import 'package:todoapp/cubits/taskscubit/state.dart';
+import 'package:todoapp/resources/translate_keys.dart';
 
 class GridTasksScreen extends StatelessWidget {
   const GridTasksScreen({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class GridTasksScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              defaultText(whatIsOnYourMind),
+              Text(AppLocalization.of(context).getTranslatedValues(TranslateKeys.whatIsOnYourMind),style: Theme.of(context).textTheme.bodySmall,),
               SizedBox(
                 height: 40.h,
               ),

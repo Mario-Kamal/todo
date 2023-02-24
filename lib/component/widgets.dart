@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:todoapp/appcolors.dart';
+import 'package:todoapp/theme/appcolors.dart';
 import 'package:todoapp/cubits/taskscubit/cubit.dart';
 import 'package:todoapp/model/task_model.dart';
 
@@ -10,11 +10,6 @@ Widget defaultText(text) => Text(text,
         fontSize: 20.sp,
         fontWeight: FontWeight.bold,
         color: AppColors.textColor));
-Widget mainSplashText(text,fontSize) => Text(text,
-    style: TextStyle(
-        fontSize: fontSize,
-        fontWeight: FontWeight.w700,
-        color: Colors.white));
 Widget svgSizedBox(height,width,image)=>SizedBox(
     height: height,
     width: width,

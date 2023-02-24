@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:todoapp/cubits/enums.dart';
@@ -8,6 +9,8 @@ class TasksCubit extends Cubit<TaskState> {
   TasksCubit() : super(TaskState());
 
   static TasksCubit get(context) => BlocProvider.of(context);
+  bool isEn=false;
+  Locale locale=const Locale('en','');
 
   openDataBase() async {
     var databasesPath = await getDatabasesPath();
@@ -48,9 +51,9 @@ class TasksCubit extends Cubit<TaskState> {
     getFromDB();
   }
 
-  search(searchvalue) {
+  search(searchValue) {
     emit(state.copyWith(
-      searchValue: searchvalue,
+      searchValue: searchValue,
     ));
   }
   searchTaskList (){
@@ -58,5 +61,14 @@ class TasksCubit extends Cubit<TaskState> {
         .where((element) =>
     element.title?.toLowerCase().contains(state.searchValue.toLowerCase()) ?? false)
         .toList();
+  }
+  changeLanguage() {
+    if (isEn == true) {
+      locale = const Locale('en','');
+    } else {
+      locale = const Locale('ar','');
+    }
+    isEn=!isEn;
+    emit(state.copyWith(locale: locale));
   }
 }
