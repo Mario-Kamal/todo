@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (BuildContext context) => MainCubit()),
+        BlocProvider(create: (BuildContext context) => MainCubit()..getAppTheme()),
         BlocProvider(
-            create: (BuildContext context) => TasksCubit()..openDataBase())
+            create: (BuildContext context) => TasksCubit()..openDataBase()..getAppLang())
       ],
       child: ScreenUtilInit(
           designSize: const Size(390, 844),
@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
               return BlocBuilder<TasksCubit,TaskState>(
                 builder: (context,state) {
                   return MaterialApp(
+                    debugShowCheckedModeBanner: false,
                     localizationsDelegates: const [
                       AppLocalization.delegate,
                       GlobalMaterialLocalizations.delegate,

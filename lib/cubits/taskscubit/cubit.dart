@@ -4,13 +4,14 @@ import 'package:sqflite/sqflite.dart';
 import 'package:todoapp/cubits/enums.dart';
 import 'package:todoapp/cubits/taskscubit/state.dart';
 import 'package:todoapp/model/task_model.dart';
+import 'package:todoapp/resources/helper/lang_shared.dart';
 
 class TasksCubit extends Cubit<TaskState> {
   TasksCubit() : super(TaskState());
 
   static TasksCubit get(context) => BlocProvider.of(context);
-  bool isEn=false;
-  Locale locale=const Locale('en','');
+  bool isEn = false;
+  Locale locale = const Locale('en', '');
 
   openDataBase() async {
     var databasesPath = await getDatabasesPath();
@@ -56,19 +57,38 @@ class TasksCubit extends Cubit<TaskState> {
       searchValue: searchValue,
     ));
   }
-  searchTaskList (){
-    state.tasks
-        .where((element) =>
-    element.title?.toLowerCase().contains(state.searchValue.toLowerCase()) ?? false)
+
+  searchTaskList() {
+    return state.tasks.where((element) =>
+            element.title?.toLowerCase()
+                .contains(state.searchValue.toLowerCase()) ?? false)
         .toList();
   }
-  changeLanguage() {
-    if (isEn == true) {
-      locale = const Locale('en','');
+
+  getAppLang() async {
+    String cacheTheme = await LanguageHelper().getCachedLang() ?? "en";
+    if (cacheTheme == "en") {
+      isEn = false;
+      locale = const Locale('en', '');
     } else {
-      locale = const Locale('ar','');
+      isEn = true;
+      locale = const Locale('ar', '');
     }
-    isEn=!isEn;
+    isEn = !isEn;
+    emit(state.copyWith(locale: locale));
+  }
+
+  changeLanguage() async {
+    late String lang;
+    if (isEn == false) {
+      lang = "en";
+      locale = const Locale('en', '');
+    } else {
+      lang = "ar";
+      locale = const Locale('ar', '');
+    }
+    await LanguageHelper().cacheLanguage(lang);
+    isEn = !isEn;
     emit(state.copyWith(locale: locale));
   }
 }

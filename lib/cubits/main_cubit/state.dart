@@ -18,3 +18,4 @@ class ChangeViewTypeState extends MainState{
   ChangeViewTypeState(this.viewTypes):super(viewType: viewTypes);
 }
 
+
